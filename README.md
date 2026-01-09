@@ -1,32 +1,43 @@
-# Stock Trading Backend System
+# Bajaj Broking - Trading SDK Assignment
 
-A lightweight, high-performance stock trading backend built with **FastAPI**. This project simulates a trading environment where users can place orders, execute trades, and manage a portfolio using an in-memory data store.
+This project is a backend system and SDK implementation for a simplified stock trading platform. It is designed to demonstrate **REST API development**, **System Design**, and **Trading Domain** concepts as per the Campus Hiring Assignment requirements.
 
-It includes a custom **Python SDK** to interact with the API programmatically.
+## 📋 Project Overview
 
-## 🚀 Features
+The system simulates a core trading engine where users can:
+1.  **View Instruments**: Fetch real-time market data (mocked).
+2.  **Place Orders**: Buy/Sell stocks using `MARKET` or `LIMIT` orders.
+3.  **Execute Trades**: Automatic simulation of order filling.
+4.  **Manage Portfolio**: View current holdings and valuations.
+5.  **Track Orders**: Check the status of specific orders.
 
-* **Order Management**: Place `MARKET` or `LIMIT` orders for Equity instruments.
-* **Trade Execution**: Simulates trade execution and updates order status.
-* **Portfolio Management**: real-time updates of holdings, average price, and current valuation.
-* **Instrument Data**: Fetch live (mock) market data for symbols like TCS, INFY, and RELIANCE.
-* **Input Validation**: robust validation for order quantities and pricing using Pydantic.
-* **Client SDK**: A dedicated Python class (`TradingSDK`) for easy API integration.
-
-## 🛠️ Tech Stack
-
-* **Language**: Python 3.10+
-* **Framework**: FastAPI
-* **Server**: Uvicorn
-* **Client Library**: Requests (for SDK)
+It is built using **FastAPI (Python)** for high performance and includes a **custom Python SDK** to interact with the API programmatically.
 
 ---
 
-## 📂 Project Structure
+## 🛠️ Technology Stack
 
-```text
-.
-├── main.py        # The FastAPI backend application and business logic
-├── sdk.py         # Python SDK wrapper for the API
-├── test_sdk.py    # specific script to demonstrate SDK usage
-└── README.md      # Project documentation
+* **Language**: Python 3.10+
+* **Framework**: FastAPI (chosen for speed and auto-generated documentation)
+* **Server**: Uvicorn (ASGI Server)
+* **Database**: In-Memory Storage (Python Lists/Dictionaries) for simplified simulation.
+
+---
+
+## ⚙️ Assumptions Made
+*(As requested in the Deliverables)*
+
+1.  **Single User Environment**: The system assumes a single active user. Authentication is mocked/implicit as per the requirement guidelines.
+2.  **Immediate Execution**: For simplicity, `MARKET` orders and valid `LIMIT` orders are treated as `EXECUTED` immediately upon placement.
+3.  **Data Persistence**: The system uses in-memory storage. All data (orders, trades, portfolio) resets when the application server is restarted.
+4.  **Short Selling**: The system validates that a user must own the stock before selling (`SELL` orders require sufficient portfolio quantity).
+5.  **Currency**: All prices are assumed to be in INR (₹).
+
+---
+
+## 🚀 Setup and Run Instructions
+
+### 1. Prerequisites
+Ensure you have Python installed:
+```bash
+python --version
